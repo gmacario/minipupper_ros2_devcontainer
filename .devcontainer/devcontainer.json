@@ -10,6 +10,7 @@
 	"runArgs": [
 		"--network=host",
 		"--cap-add=SYS_PTRACE",
+		"--device=/dev/net/tun",
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
@@ -25,6 +26,11 @@
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
 		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
 	},
+	"features": {
+		"ghcr.io/tailscale/codespace/tailscale": {
+			"version": "latest"
+		}
+	},
 	// Set *default* container specific settings.json values on container create.
 	"customizations": {
 		"vscode": {
@@ -33,12 +39,13 @@
 				"betwo.b2-catkin-tools",
 				"DotJoshJohnson.xml",
 				"ms-azuretools.vscode-docker",
-				"ms-iot.vscode-ros",
 				"ms-python.python",
 				"ms-vscode.cpptools",
+				"Ranch-Hand-Robotics.rde-pack",
 				"redhat.vscode-yaml",
 				"smilerobotics.urdf",
 				"streetsidesoftware.code-spell-checker",
+				"Tailscale.vscode-tailscale",
 				"twxs.cmake",
 				"yzhang.markdown-all-in-one",
 				"zachflower.uncrustify"
